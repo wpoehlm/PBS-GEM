@@ -1,0 +1,5 @@
+#!/bin/bash
+
+pwd > basedir.txt
+BASEDIR=$(pwd)
+mv basedir.txt $BASEDIR/Templates
