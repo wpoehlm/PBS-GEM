@@ -1,0 +1,18 @@
+Read 10000 spots for SRR504356
+Written 10000 spots for SRR504356
+ 
+ 
++------------------------------------------+ 
+| PALMETTO CLUSTER PBS RESOURCES REQUESTED | 
++------------------------------------------+ 
+ 
+mem=2gb,ncpus=1,walltime=20:00:00
+ 
+ 
++-------------------------------------+ 
+| PALMETTO CLUSTER PBS RESOURCES USED | 
++-------------------------------------+ 
+ 
+cpupercent=50,cput=00:00:02,mem=0kb,ncpus=1,vmem=0kb,walltime=00:00:04
+ 
+ 
