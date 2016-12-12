@@ -15,3 +15,5 @@ cd $BASEDIR/FastQ
 for i in *Dump.pbs ; do qsub -o $BASEDIR/Logs/$i.out \
 -e $BASEDIR/Logs/$i.err ./$i ; done
 
+mkdir PBS
+mv *pbs PBS

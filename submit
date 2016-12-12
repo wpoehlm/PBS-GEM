@@ -2,4 +2,6 @@
 
 pwd > basedir.txt
 BASEDIR=$(pwd)
-mv basedir.txt $BASEDIR/Templates
+cp basedir.txt $BASEDIR/Templates 
+cp basedir.txt $BASEDIR/Logs/Progress
+rm $BASEDIR/basedir.txt
