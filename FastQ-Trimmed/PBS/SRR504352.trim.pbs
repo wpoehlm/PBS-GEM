@@ -1,0 +1,16 @@
+#!/bin/bash
+#PBS -N SRR504352.trim
+#PBS -l select=1:ncpus=6:mem=8gb,walltime=20:00:00
+#PBS -j oe
+
+cd ${PBS_O_WORKDIR}
+
+BASEDIR=$(cat basedir.txt)
+cd $BASEDIR/FastQ-Trimmed
+
+java -jar $BASEDIR/Software/Trimmomatic-0.36/trimmomatic-0.36.jar \
+PE -phred33 $BASEDIR/FastQ/SRR504352_1.fastq.gz $BASEDIR/FastQ/SRR504352_2.fastq.gz \
+./SRR504352_1.forward_paired_trim.fastq.gz ./SRR504352_1.forward_unpaired_trim.fastq.gz \
+./SRR504352_2.reverse_paired_trim.fastq.gz ./SRR504352_2.reverse_unpaired_trim.fastq.gz \
+ILLUMINACLIP:$BASEDIR/Task-Files/Fasta_Adapters_9_2_16:2:40:15 LEADING:3 \
+TRAILING:6 SLIDINGWINDOW:4:15 MINLEN:50;
