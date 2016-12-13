@@ -2,7 +2,7 @@
 
 BASEDIR=$(pwd)
 mkdir $BASEDIR/FastQ
-cp Templates/basedir.txt $BASEDIR/FastQ
+cp $BASEDIR/Templates/basedir.txt $BASEDIR/FastQ
 
 tar -xf $BASEDIR/Software/sratoolkit.2.8.0-ubuntu64.tar.gz -C $BASEDIR\
 /Software
