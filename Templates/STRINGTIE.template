@@ -1,0 +1,17 @@
+#!/bin/bash
+#PBS -N SRA.StringTie
+#PBS -l select=1:ncpus=4:mem=6gb,walltime=24:00:00
+#PBS -j oe
+
+
+cd ${PBS_O_WORKDIR}
+
+
+mkdir SRA.String
+cd SRA.String
+
+$BASEDIR/Software/stringtie-1.3.1c.Linux_x86_64/stringtie ./SRA.view.sorted -o ./SRA.hisat2.StringTie.hits.bam.gtf
+
+
+
+
