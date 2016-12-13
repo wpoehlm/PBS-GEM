@@ -7,7 +7,7 @@ cd ${PBS_O_WORKDIR}
 
 BASEDIR=$(cat basedir.txt)
 
-$BASEDIR/Software/hisat2-2.0.5/hisat2 -p 4 -x $BASEDIR/Reference/Mtruncatula \
+$BASEDIR/Software/hisat2-2.0.5/hisat2 -p 4 -x $BASEDIR/Reference/Mtruncatula_GTF \
 -q -1 $BASEDIR/FastQ-Trimmed/SRA_1.forward_paired_trim.fastq.gz -2 \
 $BASEDIR/FastQ-Trimmed/SRA_2.reverse_paired_trim.fastq.gz -S \
 ./SRA.hits.sam --downstream-transcriptome-assembly -t
