@@ -10,7 +10,8 @@ cd ${PBS_O_WORKDIR}
 mkdir SRA.String
 cd SRA.String
 
-$BASEDIR/Software/stringtie-1.3.1c.Linux_x86_64/stringtie ./SRA.view.sorted -o ./SRA.hisat2.StringTie.hits.bam.gtf
+$BASEDIR/Software/stringtie-1.3.1c.Linux_x86_64/stringtie \
+$BASEDIR/Alignment/SRA.view.sorted -o ./SRA.hisat2.StringTie.hits.bam.gtf
 
 
 
