@@ -1,0 +1,17 @@
+#!/bin/bash
+#PBS -N GEM
+#PBS -l select=1:ncpus=1:mem=16gb,walltime=20:00:00
+
+cd ${PBS_O_WORKDIR}
+
+
+BASEDIR=$(cat basedir.txt)
+
+cd $BASEDIR/Count
+
+for i in *String ; do cd $i ; mv t_data.ctab $BASEDIR/GEM/transcripts\
+$i.counts ; done
+
+cd $BASEDIR/GEM/transcripts
+
+for z i in *fpkm ; do python ST_ttab_parse.py $z > $z.fpkm ; done
