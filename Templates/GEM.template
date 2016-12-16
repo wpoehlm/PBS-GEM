@@ -6,7 +6,8 @@ cd ${PBS_O_WORKDIR}
 
 
 BASEDIR=$(cat basedir.txt)
-
+date=$(date +"20%y%m%d")
+githash=$(git log --pretty=format:'%h' -n 1)
 cd $BASEDIR/Count
 
 for i in `ls -d *String` ; do cd $i ; mv t_data.ctab $i.counts ; mv $i.counts \
@@ -18,4 +19,5 @@ for z in *counts ; do python $BASEDIR/Task-Files/ST_ttab_parse.py $z > \
 $BASEDIR/GEM/transcripts/parse/$z.fpkm ; done
 
 
-perl $BASEDIR/Task-Files/GEM_merge.pl parse/ > $BASEDIR/GEM/GEM.tab
+perl $BASEDIR/Task-Files/GEM_merge.pl parse/ > $BASEDIR/GEM/PBS-GEM\
+-$githash-$date.tab
