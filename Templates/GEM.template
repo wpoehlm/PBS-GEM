@@ -9,8 +9,8 @@ BASEDIR=$(cat basedir.txt)
 
 cd $BASEDIR/Count
 
-for i in `ls -d *String` ; do cd $i ; mv t_data.ctab $BASEDIR/GEM/transcripts\
-/$i.counts ; cd .. ; done
+for i in `ls -d *String` ; do cd $i ; mv t_data.ctab $i.counts ; mv $i.counts \
+$BASEDIR/GEM/transcripts ; cd .. ; done
 
 cd $BASEDIR/GEM/transcripts
 
