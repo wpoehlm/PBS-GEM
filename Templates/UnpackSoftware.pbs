@@ -4,6 +4,8 @@
 
 cd ${PBS_O_WORKDIR}
 
+cd Templates
+
 BASEDIR=$(cat basedir.txt)
 
 tar -xf $BASEDIR/Software/sratoolkit.2.8.0-ubuntu64.tar.gz -C $BASEDIR\
