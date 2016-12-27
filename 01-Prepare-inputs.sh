@@ -4,9 +4,6 @@ BASEDIR=$(pwd)
 mkdir $BASEDIR/FastQ
 cp $BASEDIR/Templates/basedir.txt $BASEDIR/FastQ
 
-tar -xf $BASEDIR/Software/sratoolkit.2.8.0-ubuntu64.tar.gz -C $BASEDIR\
-/Software
-
 for i in `cat SRAList.txt` ; do cat $BASEDIR/Templates/FASTQ-DUMP.template | \
 sed s/SRAID/$i/g > $BASEDIR/FastQ/$i.FastQDump.pbs ; done
 

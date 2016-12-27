@@ -5,3 +5,6 @@ BASEDIR=$(pwd)
 cp basedir.txt $BASEDIR/Templates 
 cp basedir.txt $BASEDIR/Logs/Progress
 rm $BASEDIR/basedir.txt
+
+qsub -o $BASEDIR/Logs/init.out $BASEDIR/Logs/init.err \
+Templates/UnpackSoftware.pbs
