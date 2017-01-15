@@ -8,5 +8,5 @@ BASEDIR=$(cat basedir.txt)
 
 cd $BASEDIR/FastQ
 
-$BASEDIR/Software/sratoolkit.2.8.0-ubuntu64/bin/fastq-dump --split-files \
+$BASEDIR/Software/sratoolkit.2.8.1-centos_linux64/bin/fastq-dump --split-files \
 -X 10000 SRAID
