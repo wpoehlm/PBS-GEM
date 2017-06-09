@@ -25,13 +25,20 @@ This will submit a PBS job that decompresses the SRA toolkit, Trimmomatic, Hisat
 The reference genome must be indexed using Hisat2.  Download a reference genome in FASTA (.fa) format.  To index this reference genome, create and submit a PBS script from the _Reference_ directory as follows ($REF_PREFIX must be replaced with the prefix of the reference genome index files that you want):
 
 #!/bin/bash
+
 #PBS -N hisat_index
+
 #PBS -l select=1:ncpus=1:mem=14gb,walltime=72:00:00
+
 #PBS -j oe
 
 cd ${PBS_O_WORKDIR}
 
+
+
 ../Software/hisat2-2.0.5/hisat2-build -f *.fa $REF_PREFIX
+
+cp *fa $REF_PREFIX.fa
 
 ### Download GFF3 Genome Annotation
 
@@ -57,6 +64,8 @@ The workflow contains a small reference genome for testing.  To run the workflow
 ### Map Reads to Reference Genome 
 
     $ ./03-Map-reads.sh chr21-GRCh38
+    
+When using your own data, please replace "chr21-GRCh38" with the appropriate reference prefix (same as the $REF_PREFIX that you chose when indexing the reference genome).  
 
 ### Quantify Transcript Abundances
 
