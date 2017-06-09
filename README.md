@@ -33,6 +33,10 @@ cd ${PBS_O_WORKDIR}
 
 ../Software/hisat2-2.0.5/hisat2-build -f *.fa $REF_PREFIX
 
+### Download GFF3 Genome Annotation
+
+A GFF3 file that corresponds to the reference genome must be placed in the _Reference_ directory
+
 
 ### Identify SRA sample ID's and modify SRAList.txt file
 
@@ -61,4 +65,8 @@ The workflow contains a small reference genome for testing.  To run the workflow
 ### Build Gene Expression Matrix (GEM)
 
     $ ./05-GEM-parse.sh
+    
+#### Comments/Notes
+
+With full datasets, each step of this workflow can take several hours.  Please be sure that all PBS jobs have finished before moving onto the next step.  A "Logs" directory will be created upon initiation of the workflow.  Please inspect all log files for errors.  
 
