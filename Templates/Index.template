@@ -1,0 +1,13 @@
+#!/bin/bash
+#PBS -N Index
+#PBS -l select=1:ncpus=1:mem=8gb,walltime=24:00:00
+#PBS -j oe
+
+cd ${PBS_O_WORKDIR}
+
+
+
+../Software/hisat2-2.0.5/hisat2-build -f ./*fa REF_PREFIX
+
+cp *fa REF_PREFIX.fa
+
