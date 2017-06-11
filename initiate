@@ -1,7 +1,5 @@
 #!/bin/bash
 
-REF_PREFIX=$1
-
 pwd > basedir.txt
 BASEDIR=$(pwd)
 cp basedir.txt $BASEDIR/Templates 
