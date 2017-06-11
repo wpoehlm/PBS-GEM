@@ -24,7 +24,7 @@ This will submit a PBS job that decompresses the SRA toolkit, Trimmomatic, Hisat
 
 -If you are running the workflow with the small test files, you may skip this step.  
 
-The reference genome must be indexed using Hisat2.  Download a reference genome in FASTA (.fa) format.  To index this reference genome, execute the _Index-Genome.sh_ script and provide a reference prefix as an argument:
+The reference genome must be indexed using Hisat2.  Download a reference genome in FASTA (.fa) format, and place this file in the _Reference_ directory of the workflow.  To index this reference genome, execute the _Index-Genome.sh_ script and provide a reference prefix as an argument:
 
         $ ./Index-Genome.sh $REF_PREFIX
         
