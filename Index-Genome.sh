@@ -8,4 +8,4 @@ cat ./Templates/Index.template | sed s/REF_PREFIX/$REF_PREFIX/g >> \
 
 cd ./Reference/
 
-qsub -o $BASEDIR/Logs/Index.out -e $BASEDIR/Logs/Index.err ./RefIndex.pbs
+qsub -o ../Logs/Index.out -e ../Logs/Index.err ./RefIndex.pbs
