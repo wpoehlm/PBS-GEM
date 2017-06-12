@@ -49,6 +49,8 @@ The workflow contains a small reference genome for testing.  To run the workflow
 ### Download Input Data
 
     $ ./01-Prepare-inputs.sh
+    
+Please note that this script as the "-X 10000" parameter set by default.  This will only download the first 10,000 reads from each sample, to enable the user to quickly test the workflow.  Please remove "X 10000" from the _FASTQ-DUMP.template_ file in the _Templates_ directory when performing your experiment.  
   
 ### Trim Reads
 
