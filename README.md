@@ -11,7 +11,7 @@ This workflow utilizes Genome annotation files in GFF3 format to quantify transc
 
 Pertea, M., et al. (2016). "Transcript-level expression analysis of RNA-seq experiments with HISAT, StringTie and Ballgown." Nat. Protocols 11(9): 1650-1667.
 
-Note that this workflow does not perform transcript assembly, and will only quantify abundances of annotated reference transcripts.  
+Note that PBS-GEM does not perform transcript assembly, and will only quantify abundances of annotated reference transcripts.  
 
 ## Pre-Workflow User Input
 
