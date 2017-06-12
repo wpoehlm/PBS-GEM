@@ -2,7 +2,7 @@
 This workflow contains PBS job wrappers, pre-configured software packages(all open source), and bash scripts that automate the submission of PBS jobs that perform the following tasks:
 
 * Download RNA sequencing data in FASTQ format using the [SRA Toolkit](https://www.ncbi.nlm.nih.gov/books/NBK158900/)
-* Trim raw fastq files of poor quality reads and Illumina adapter sequences using [Trimmomatic](http://www.usadellab.or/cms/?page=trimmomatic)
+* Trim raw fastq files of poor quality reads and Illumina adapter sequences using [Trimmomatic](http://www.usadellab.org/cms/?page=trimmomatic)
 * Map cleaned reads to a reference genome using  [Hisat2](https://ccb.jhu.edu/software/hisat2/manual.shtml)
 * Quantify RNA transcript abundances using [StringTie](https://ccb.jhu.edu/software/stringtie/index.shtml?t=manual)
 * Parse FPKM values from StringTie output into a Gene Expression Matrix (GEM)
@@ -22,7 +22,6 @@ This will submit a PBS job that decompresses the SRA toolkit, Trimmomatic, Hisat
 
 ### Download and Index Reference Genome
 
--If you are running the workflow with the small test files, you may skip this step.  
 
 The reference genome must be indexed using Hisat2.  Download a reference genome in FASTA (.fa) format, and place this file in the _Reference_ directory of the workflow.  To index this reference genome, execute the _Index-Genome.sh_ script and provide a reference prefix as an argument:
 
@@ -32,9 +31,11 @@ For example:
 
         $ ./Index-Genome.sh chr21-GRCh38
 
+Please note that only one .fa genome file can be present in the _Reference_ directory.  Please remove the example file, "chr21-GRCh38.fa", before using your own data.  
+
 ### Download GFF3 Genome Annotation
 
-A GFF3 file that corresponds to the reference genome must be placed in the _Reference_ directory
+A GFF3 file that corresponds to the reference genome must be placed in the _Reference_ directory.  Please check that only one GFF3 file is present.  
 
 
 ### Identify SRA sample ID's and modify SRAList.txt file
