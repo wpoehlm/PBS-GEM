@@ -8,15 +8,15 @@ cd Templates
 
 BASEDIR=$(cat basedir.txt)
 
-tar -xf $BASEDIR/Software/sratoolkit.2.8.1-centos_linux64.tar.gz -C $BASEDIR\
+tar -xf $BASEDIR/Software/sratoolkit.current-centos_linux64.tar.gz -C $BASEDIR\
 /Software
 
-unzip $BASEDIR/Software/Trimmomatic-0.36.zip -d $BASEDIR/Software
+unzip $BASEDIR/Software/Trimmomatic-0.38.zip -d $BASEDIR/Software
 
-tar -xf $BASEDIR/Software/samtools-1.3.1.tar.gz -C $BASEDIR/Software
-unzip $BASEDIR/Software/hisat2-2.0.5-Linux_x86_64.zip -d \
+tar -xf $BASEDIR/Software/samtools-1.8.tar.gz -C $BASEDIR/Software
+unzip $BASEDIR/Software/hisat2-2.1.0-Linux_x86_64.zip -d \
 $BASEDIR/Software
 
-tar -xf $BASEDIR/Software/stringtie-1.3.1c.Linux_x86_64.tar.gz -C \
+tar -xf $BASEDIR/Software/stringtie-1.3.4d.Linux_x86_64.tar.gz -C \
 $BASEDIR/Software
 

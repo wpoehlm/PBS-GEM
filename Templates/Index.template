@@ -7,7 +7,7 @@ cd ${PBS_O_WORKDIR}
 
 
 
-../Software/hisat2-2.0.5/hisat2-build -f ./*fa REF_PREFIX
+../Software/hisat2-2.1.0/hisat2-build -f ./*fa REF_PREFIX
 
 cp *fa REF_PREFIX.fa
 
