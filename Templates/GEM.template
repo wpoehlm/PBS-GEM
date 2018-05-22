@@ -4,6 +4,7 @@
 
 cd ${PBS_O_WORKDIR}
 
+module load python/2.7.6
 
 BASEDIR=$(cat basedir.txt)
 date=$(date +"20%y%m%d")
