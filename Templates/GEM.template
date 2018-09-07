@@ -11,14 +11,24 @@ date=$(date +"20%y%m%d")
 githash=$(git log --pretty=format:'%h' -n 1)
 cd $BASEDIR/Count
 
-for i in `ls -d *String` ; do cd $i ; mv t_data.ctab $i.counts ; mv $i.counts \
-$BASEDIR/GEM/transcripts ; cd .. ; done
+for i in `ls -d *String` ; do cd $i ; cp t_data.ctab $i.counts ; mv $i.counts \
+$BASEDIR/GEM/transcripts ; cp *genes.fpkm $BASEDIR/GEM/transcripts ; cd .. ; done
 
 cd $BASEDIR/GEM/transcripts
-mkdir parse
+mkdir parse_isoform
 for z in *counts ; do python $BASEDIR/Task-Files/ST_ttab_parse.py $z > \
-$BASEDIR/GEM/transcripts/parse/$z.fpkm ; done
+$BASEDIR/GEM/transcripts/parse_isoform/$z.fpkm ; done
 
 
-perl $BASEDIR/Task-Files/GEM_merge.pl parse/ > $BASEDIR/GEM/PBS-GEM\
--$githash-$date.tab
+
+perl $BASEDIR/Task-Files/GEM_merge.pl parse_isoform/ > $BASEDIR/GEM/transcript_fpkms.tab
+
+
+cd $BASEDIR/GEM/transcripts
+mkdir parse_gene
+
+mv *genes.fpkm parse_gene
+
+perl $BASEDIR/Task-Files/GEM_merge.pl parse_gene/ > $BASEDIR/GEM/Gene_fpkms.tab
+
+
