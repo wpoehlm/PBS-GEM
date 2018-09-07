@@ -6,7 +6,8 @@
 cd ${PBS_O_WORKDIR}
 
 BASEDIR=$(cat basedir.txt)
-$BASEDIR/Software/hisat2-2.1.0/hisat2 -p 4 -x $BASEDIR/Reference/REF \
+$BASEDIR/Software/hisat2-2.1.0/hisat2 --rna-strandness RF --min-intronlen 20 \
+--max-intronlen 7000 -p 4 -x $BASEDIR/Reference/REF \
 -q -1 $BASEDIR/FastQ-Trimmed/SRA_1.forward_paired_trim.fastq -2 \
 $BASEDIR/FastQ-Trimmed/SRA_2.reverse_paired_trim.fastq -S \
 ./SRA.hits.sam --downstream-transcriptome-assembly -t
@@ -14,6 +15,14 @@ $BASEDIR/FastQ-Trimmed/SRA_2.reverse_paired_trim.fastq -S \
 $BASEDIR/Software/samtools-1.8/samtools view -bS SRA.hits.sam > \
 SRA-accepted_hits.view.bam
 
+$BASEDIR/Software/samtools-1.8/samtools view -q 60 -bS SRA.hits.sam > \
+SRA-accepted_hits.filtered.bam
+
+
 $BASEDIR/Software/samtools-1.8/samtools sort -o \
 SRA-accepted_hits.view.sorted.bam SRA-accepted_hits.view.bam
 
+$BASEDIR/Software/samtools-1.8/samtools sort -o \
+SRA-accepted_hits.filtered.sorted.bam SRA-accepted_hits.filtered.bam
+
+rm SRA-accepted_hits.view.bam SRA-accepted_hits.filtered.bam
