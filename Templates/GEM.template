@@ -32,3 +32,16 @@ mv *genes.fpkm parse_gene
 perl $BASEDIR/Task-Files/GEM_merge.pl parse_gene/ > $BASEDIR/GEM/Gene_fpkms.tab
 
 
+
+# Provide directory structure for prepDE.py script
+cd $BASEDIR/Count
+
+mkdir ballgown
+
+for i in `ls *String | awk -F '.' '{print $1}'` ; do mv $i.String ./ballgown/$i ; done
+
+python $BASEDIR/Task-Files/prepDE.py
+
+mv transcript_count_matrix.csv $BASEDIR/GEM
+mv gene_count_matrix.csv $BASEDIR/GEM
+
