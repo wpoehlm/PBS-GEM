@@ -45,3 +45,8 @@ python $BASEDIR/Task-Files/prepDE.py
 mv transcript_count_matrix.csv $BASEDIR/GEM
 mv gene_count_matrix.csv $BASEDIR/GEM
 
+cd $BASEDIR/Logs
+
+$BASEDIR/Task-Files/Parse_logs.sh 
+
+mv $BASEDIR/Logs/QC_report.tab $BASEDIR/GEM
