@@ -6,10 +6,16 @@
 cd ${PBS_O_WORKDIR}
 
 BASEDIR=$(cat basedir.txt)
+
+cd $BASEDIR/FastQ
+
+for i in SRA* ; do gunzip $i ; done
+
+
 cd $BASEDIR/FastQ-Trimmed
 
 java -jar $BASEDIR/Software/Trimmomatic-0.38/trimmomatic-0.38.jar \
-PE -phred33 $BASEDIR/FastQ/SRA_1.fastq $BASEDIR/FastQ/SRA_2.fastq \
+PE -phred33 $BASEDIR/FastQ/SRA_1.fq $BASEDIR/FastQ/SRA_2.fq \
 ./SRA_1.forward_paired_trim.fastq ./SRA_1.forward_unpaired_trim.fastq \
 ./SRA_2.reverse_paired_trim.fastq ./SRA_2.reverse_unpaired_trim.fastq \
 ILLUMINACLIP:$BASEDIR/Task-Files/Fasta_Adapters_9_2_16:2:40:15 LEADING:3 \
